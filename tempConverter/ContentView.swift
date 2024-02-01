@@ -22,7 +22,7 @@ struct ContentView: View {
         }
         
         if inputType == "Fahrenheit" {
-             baseInput = (input - 32) * 5/9 / 273.15
+            baseInput = (input + 459.67) / 1.8
         }
         
         if inputType == "Celcius" {
@@ -38,7 +38,7 @@ struct ContentView: View {
         }
         
         if outputType == "Fahrenheit" {
-            displayOutput = (baseInput - 273.15) * 1.8 + 32
+            displayOutput = baseInput * 1.8 - 459.67
         }
         
         return displayOutput
@@ -76,7 +76,7 @@ struct ContentView: View {
                     }.pickerStyle(.segmented)
                 }
                 
-                Text("\(input.formatted()) in \(inputType) is \(output) in \(outputType)")
+                Text("\(input.formatted()) in \(inputType) is \(output.formatted()) in \(outputType)")
                     
 
 
